@@ -8,6 +8,6 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a84c3731_002De2b4_002D4c53_002D9471_002D757d28815584/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="A tuple with w=0.0 is a vector" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net6.0::Tests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net6.0::PointsAndVectors&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
