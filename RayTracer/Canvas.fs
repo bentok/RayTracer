@@ -1,30 +1,29 @@
 namespace RayTracer
 
+open Colors
+
 module Canvas =
 
-    type Color = float * float * float
+    type Canvas = int * int * Color list list
 
-    let epsilon = 0.00001
+    let canvas width height : Canvas =
+        let c =
+            [ 1 .. height ]
+            |> List.map (fun x -> [ for i in 1 .. width -> color (0, 0, 0) ])
 
-    let equal a b = a - b < epsilon
+        width, height, c
 
-    let color (c: Color) = c
+    let writePixel (c: Canvas) (x: int) (y: int) (color: Color) =
+        let _, _, canvas = c
 
-    let add (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 + r2, g1 + g2, b1 + b2
+        let indexed =
+            canvas |> List.map List.indexed |> List.indexed
 
-    let subtract (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 - r2, g1 - g2, b1 - b2
-
-    let multiply (c: Color) m =
-        let r, g, b = c
-        r * m, g * m, b * m
-
-    let hadamardProduct (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 * r2, g1 * g2, b1 * b2
+        indexed
+        |> List.map
+            (fun (idx, row) ->
+                if idx = y then
+                    row
+                    |> List.map (fun (idx, column) -> if idx = x then color else column)
+                else
+                    row |> List.map snd)

@@ -1,7 +1,7 @@
-module Canvas
+module Colors
 
 open Xunit
-open RayTracer.Canvas
+open RayTracer.Colors
 
 [<Fact>]
 let ``Colors are (red, green, blue) tuples`` () =

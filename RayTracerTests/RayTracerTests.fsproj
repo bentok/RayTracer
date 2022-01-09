@@ -6,7 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PointsAndVectorsTests.fs" />
-    <Compile Include="CavasTests.fs" />
+    <Compile Include="ColorTests.fs" />
+    <Compile Include="CanvasTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

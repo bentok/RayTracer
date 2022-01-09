@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PointsAndVectors.fs" />
+    <Compile Include="Colors.fs" />
     <Compile Include="Canvas.fs" />
   </ItemGroup>
 </Project>
