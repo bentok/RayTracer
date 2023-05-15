@@ -1,30 +1,24 @@
-namespace RayTracer
+module Colors
 
-module Colors =
+open Utilities
 
-    type Color = float * float * float
+type Color = float * float * float
 
-    let epsilon = 0.00001
+let add (c1: Color) (c2: Color) =
+    let r1, g1, b1 = c1
+    let r2, g2, b2 = c2
+    r1 + r2, g1 + g2, b1 + b2
 
-    let equal a b = a - b < epsilon
+let subtract (c1: Color) (c2: Color) =
+    let r1, g1, b1 = c1
+    let r2, g2, b2 = c2
+    r1 - r2, g1 - g2, b1 - b2
 
-    let color (c: Color) = c
+let multiply (c: Color) m =
+    let r, g, b = c
+    r * m, g * m, b * m
 
-    let add (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 + r2, g1 + g2, b1 + b2
-
-    let subtract (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 - r2, g1 - g2, b1 - b2
-
-    let multiply (c: Color) m =
-        let r, g, b = c
-        r * m, g * m, b * m
-
-    let hadamardProduct (c1: Color) (c2: Color) =
-        let r1, g1, b1 = c1
-        let r2, g2, b2 = c2
-        r1 * r2, g1 * g2, b1 * b2
+let hadamardProduct (c1: Color) (c2: Color) =
+    let r1, g1, b1 = c1
+    let r2, g2, b2 = c2
+    r1 * r2, g1 * g2, b1 * b2

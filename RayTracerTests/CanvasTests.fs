@@ -1,8 +1,7 @@
-module Canvas
+module CanvasTests
 
 open Xunit
-open RayTracer.Canvas
-open RayTracer.Colors
+open Canvas
 
 [<Fact>]
 let ``Creating a canvas`` () =
@@ -15,5 +14,4 @@ let ``Creating a canvas`` () =
         Assert.Equal(width, List.length row)
 
         for pixel in row do
-            Assert.Equal(pixel, color (0, 0, 0))
-    
+            Assert.Equal(pixel, (0.0, 0.0, 0.0))
