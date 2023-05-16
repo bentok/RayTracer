@@ -8,19 +8,25 @@ open FsUnit
 let ``A tuple with w=1.0 is a point`` () =
     let point = 4.3, -4.2, 3.1, 1.0
     let x, y, z, w = point
-    x |> should equal 4.3
-    y |> should equal -4.2
-    z |> should equal 3.1
-    w |> should equal 1.0
-
+    match point with
+    | Point ->
+        x |> should equal 4.3
+        y |> should equal -4.2
+        z |> should equal 3.1
+        w |> should equal 1.0
+    | Vector -> failwith "This should never run"
 
 [<Fact>]
 let ``A tuple with w=0.0 is a vector`` () =
-    let x, y, z, w = 4.3, -4.2, 3.1, 0.0
-    x |> should equal 4.3
-    y |> should equal -4.2
-    z |> should equal 3.1
-    w |> should equal 0.0
+    let vector = 4.3, -4.2, 3.1, 0.0
+    let x, y, z, w = vector
+    match vector with
+    | Vector ->
+        x |> should equal 4.3
+        y |> should equal -4.2
+        z |> should equal 3.1
+        w |> should equal 0.0
+    | Point -> failwith "This should never run"
 
 [<Fact>]
 let ``Adding two tuples`` () =

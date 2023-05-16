@@ -1,36 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4e73772b_002Dd411_002D4310_002Da83a_002Dc426815a4e35/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="A tuple with w=1.0 is a point" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5026494a_002D37f2_002D438e_002D9126_002Dd9438d33f872/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Constructing the PPM pixel data" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.The cross product of two vectors&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.The dot product of two tuples&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.The magnitude of a normalized vector&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Normalizing vector(1, 2, 3)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Normalizing vector(4, 0, 0) gives (1, 0, 0)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Computing the magnitude of vector(-1, -2, -3)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Computing the magnitude of vector(1, 2, 3)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Computing the magnitude of vector(0, 0, 1)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Computing the magnitude of vector(0, 1, 0)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Computing the magnitude of vector(1, 0, 0)&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Dividing a tuple by a scalar&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Multiplying a tuple by a fraction&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Multiplying a tuple by a scalar&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Negating a tuple&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Subtracting a vector from the zero vector&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Subtracting two vectors&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Subtracting a vector from a point&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Subtracting two points&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.Adding two tuples&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9b066bb1_002D1fab_002D40af_002Db7f6_002D023415ad4d47/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Subtracting two points" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::CanvasTests.Creating a canvas&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::ColorsTests&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a84c3731_002De2b4_002D4c53_002D9471_002D757d28815584/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="A tuple with w=0.0 is a vector" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::PointsAndVectorTests.The cross product of two vectors&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::CanvasTests.Constructing the PPM pixel data&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
