@@ -85,3 +85,9 @@ let ``Splitting long lines in PPM files`` () =
 153 255 204 153 255 204 153 255 204 153 255 204 153
 255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
 153 255 204 153 255 204 153 255 204 153 255 204 153"""
+
+[<Fact>]
+let ``PPM files are terminated by a newline character`` () =
+    let c = canvas 5 3
+    let ppm = canvasToPpm c
+    ppm.EndsWith("\n") |> should equal true
