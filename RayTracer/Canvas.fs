@@ -10,13 +10,13 @@ let canvas width height : Canvas =
 
     width, height, c
 
-let writePixel (c: Canvas) (x: int) (y: int) (color: Color) : Canvas =
-    let _, _, canvas = c
+let writePixel canvas x y color : Canvas =
+    let _, _, colors = canvas
 
-    let indexed = canvas |> List.map List.indexed |> List.indexed
+    let indexed = colors |> List.map List.indexed |> List.indexed
 
-    canvas[0].Length,
-    canvas.Length,
+    colors[0].Length,
+    colors.Length,
     indexed
     |> List.map (fun (idx, row) ->
         if idx = y then
@@ -24,22 +24,48 @@ let writePixel (c: Canvas) (x: int) (y: int) (color: Color) : Canvas =
         else
             row |> List.map snd)
 
-let pixelAt (c: Canvas) (x: int) (y: int) : Color =
-    let _, _, canvas = c
-
-    canvas[y][x]
-
-let constructPpmPixelData (c: Canvas) =
+let pixelAt (c: Canvas) x y =
     let _, _, colors = c
-    let to255 = fun x -> x * 255.0 |> ceil |> (fun y -> Math.Clamp(y, 0.0, 255.0)) |> int
-    let toColorComponent =
-        fun (r, g, b) ->
-            to255 r,
-            to255 g,
-            to255 b
-    let stringifyRow = List.map string >> String.concat " "
+
+    colors[y][x]
+
+let makePpmHeader (c: Canvas) =
+    let width, height, _ = c
+
+    $"""
+P3
+{width |> string} {height |> string}
+255
+"""
+
+let makePpmPixelData canvas =
+    let _, _, colors = canvas
+
+    let to255 =
+        fun x -> x * 255.0 |> ceil |> (fun y -> Math.Clamp(y, 0.0, 255.0)) |> int
+
+    let toColorComponent = fun (r, g, b) -> to255 r, to255 g, to255 b
+
+    let concatenateColors colors =
+        let rec splitOrConcat colors currentLine result =
+            match colors with
+            | [] -> List.rev (currentLine :: result)
+            | h :: t ->
+                let newLine =
+                    match currentLine with
+                    | "" -> h
+                    | _ -> currentLine + " " + h
+
+                if newLine.Length > 70 then
+                    splitOrConcat t h (currentLine :: result)
+                else
+                    splitOrConcat t newLine result
+
+        splitOrConcat colors "" [] |> String.concat "\n"
+
+    let stringifyRow = List.map string >> concatenateColors
     let tupleToList = fun (r, g, b) -> [ r; g; b ]
-    
+
     colors
     |> List.map (List.map toColorComponent)
     |> List.map (List.map tupleToList)
@@ -48,10 +74,8 @@ let constructPpmPixelData (c: Canvas) =
     |> String.concat "\n"
 
 
-let canvasToPpm (c: Canvas) =
+let canvasToPpm canvas =
     $"""
-P3
-{c |> fun (w, h, _) -> w |> string} {c |> fun (w, h, _) -> h |> string}
-255
-{constructPpmPixelData c}
+{makePpmHeader canvas}
+{makePpmPixelData canvas}
 """
