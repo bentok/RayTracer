@@ -8,6 +8,7 @@ open FsUnit
 let ``A tuple with w=1.0 is a point`` () =
     let point = 4.3, -4.2, 3.1, 1.0
     let x, y, z, w = point
+
     match point with
     | Point ->
         x |> should equal 4.3
@@ -20,6 +21,7 @@ let ``A tuple with w=1.0 is a point`` () =
 let ``A tuple with w=0.0 is a vector`` () =
     let vector = 4.3, -4.2, 3.1, 0.0
     let x, y, z, w = vector
+
     match vector with
     | Vector ->
         x |> should equal 4.3
@@ -72,13 +74,13 @@ let ``Negating a tuple`` () =
 [<Fact>]
 let ``Multiplying a tuple by a scalar`` () =
     let a = 1.0, -2.0, 3.0, -4.0
-    let result = multiply a 3.5
+    let result = multiply 3.5 a
     result |> should equal (3.5, -7.0, 10.5, -14.0)
 
 [<Fact>]
 let ``Multiplying a tuple by a fraction`` () =
     let a = 1.0, -2.0, 3.0, -4.0
-    let result = multiply a 0.5
+    let result = multiply 0.5 a
     result |> should equal (0.5, -1.0, 1.5, -2.0)
 
 [<Fact>]

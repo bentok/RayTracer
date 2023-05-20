@@ -4,7 +4,9 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RayTracer", "RayTracer\RayT
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RayTracerTests", "RayTracerTests\RayTracerTests.fsproj", "{BA42F243-63B8-4997-99A8-FA0444E2C054}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Samples", "Samples\Samples.fsproj", "{8754CC4E-A1CF-4C27-8A8E-B9E3DCEA0195}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Samples.Tuples", "Samples.Tuples\Samples.Tuples.fsproj", "{8754CC4E-A1CF-4C27-8A8E-B9E3DCEA0195}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Samples.Canvas", "Samples.Canvas\Samples.Canvas.fsproj", "{9E4A0144-9B98-4341-9148-38F2F26A9A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{8754CC4E-A1CF-4C27-8A8E-B9E3DCEA0195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8754CC4E-A1CF-4C27-8A8E-B9E3DCEA0195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8754CC4E-A1CF-4C27-8A8E-B9E3DCEA0195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4A0144-9B98-4341-9148-38F2F26A9A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4A0144-9B98-4341-9148-38F2F26A9A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4A0144-9B98-4341-9148-38F2F26A9A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4A0144-9B98-4341-9148-38F2F26A9A64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

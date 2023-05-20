@@ -1,6 +1,7 @@
 module Canvas
 
 open System
+open System.IO
 open Colors
 
 type Canvas = int * int * Color list list
@@ -32,11 +33,9 @@ let pixelAt (c: Canvas) x y =
 let makePpmHeader (c: Canvas) =
     let width, height, _ = c
 
-    $"""
-P3
+    $"""P3
 {width |> string} {height |> string}
-255
-"""
+255"""
 
 let makePpmPixelData canvas =
     let _, _, colors = canvas
@@ -75,7 +74,19 @@ let makePpmPixelData canvas =
 
 
 let canvasToPpm canvas =
-    $"""
-{makePpmHeader canvas}
+    $"""{makePpmHeader canvas}
 {makePpmPixelData canvas}
 """
+
+let writeStringToPPMFile (fileName: string) (ppmString: string) =
+    let outputPath = Path.Combine(Directory.GetCurrentDirectory(), "output")
+    Directory.CreateDirectory(outputPath) |> ignore // Ensure output directory exists
+    let filePath = Path.Combine(outputPath, fileName)
+
+    try
+        File.WriteAllText(filePath, ppmString)
+        printfn "PPM file was successfully written to %s" filePath
+    with
+    | :? IOException as ioEx -> printfn "IO Exception: %s" ioEx.Message
+    | :? UnauthorizedAccessException as uaEx -> printfn "Unauthorized Access Exception: %s" uaEx.Message
+    | ex -> printfn "An error occurred: %s" ex.Message

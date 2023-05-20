@@ -30,7 +30,7 @@ let negate (t: PointOrVector) =
     let x, y, z, w = t
     -x, -y, -z, -w
 
-let multiply (t: PointOrVector) m =
+let multiply m (t: PointOrVector) =
     let x, y, z, w = t
     x * m, y * m, z * m, w * m
 
