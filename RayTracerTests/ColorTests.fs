@@ -3,7 +3,6 @@ module ColorsTests
 open Xunit
 open FsUnit
 open Colors
-open Utilities
 
 [<Fact>]
 let ``Colors are (red, green, blue) tuples`` () =

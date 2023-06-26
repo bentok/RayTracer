@@ -3,7 +3,6 @@ module CanvasTests
 open Xunit
 open FsUnit
 open Canvas
-open Colors
 
 [<Fact>]
 let ``Creating a canvas`` () =
@@ -35,11 +34,9 @@ let ``Constructing the PPM header`` () =
     ppm
     |> should
         equal
-        """
-P3
+        """P3
 5 3
-255
-"""
+255"""
 
 [<Fact>]
 let ``Constructing the PPM pixel data`` () =
@@ -90,7 +87,6 @@ let ``Splitting long lines in PPM files`` () =
         |> fun c -> writePixel c 9 1 c1
 
     let ppm = makePpmPixelData newCanvas
-
 
     ppm
     |> should

@@ -1,7 +1,6 @@
 ﻿module PointsAndVectors
 
 open System
-open Utilities
 
 type PointOrVector = float * float * float * float
 

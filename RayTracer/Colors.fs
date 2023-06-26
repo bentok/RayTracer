@@ -1,7 +1,5 @@
 module Colors
 
-open Utilities
-
 type Color = float * float * float
 
 let add (c1: Color) (c2: Color) =

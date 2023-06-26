@@ -1,3 +1,4 @@
+[<AutoOpen>]
 module Utilities
 
 let epsilon = 0.00001
