@@ -8,5 +8,6 @@
     <Compile Include="PointsAndVectors.fs" />
     <Compile Include="Colors.fs" />
     <Compile Include="Canvas.fs" />
+    <Compile Include="Matrices.fs" />
   </ItemGroup>
 </Project>

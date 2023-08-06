@@ -14,15 +14,15 @@ restore:
 build: restore
 	dotnet build
 
+tests:
+	 dotnet test RayTracerTests/RayTracerTests.fsproj --logger:"console;verbosity=detailed"
+
 fantomas:
 	dotnet tool restore
 	dotnet fantomas ./ --recurse
 
 clean:
 	dotnet clean
-
-tests: build
-	dotnet test RayTracerTests/RayTracerTests.fsproj
 
 run:
 	dotnet run --project RayTracer/RayTracer.fsproj
