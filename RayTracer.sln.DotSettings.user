@@ -12,7 +12,7 @@
     &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Multiplying two matrices&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=90f7a4fb_002D759c_002D4a2f_002D9dff_002D15f37bae45d8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Multiplying two matrices" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=90f7a4fb_002D759c_002D4a2f_002D9dff_002D15f37bae45d8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Multiplying two matrices" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Or&gt;
     &lt;ProjectFile&gt;BA42F243-63B8-4997-99A8-FA0444E2C054/f:CanvasTests.fs&lt;/ProjectFile&gt;
     &lt;ProjectFile&gt;BA42F243-63B8-4997-99A8-FA0444E2C054/f:ColorTests.fs&lt;/ProjectFile&gt;
@@ -20,6 +20,6 @@
     &lt;ProjectFile&gt;BA42F243-63B8-4997-99A8-FA0444E2C054/f:PointsAndVectorsTests.fs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ebc760d2_002Dbf54_002D4ac3_002D80bb_002D12bcdaa04656/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Multiplying two matrices #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ebc760d2_002Dbf54_002D4ac3_002D80bb_002D12bcdaa04656/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Multiplying two matrices #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Project Location="/Users/bencopeland/Dev/RayTracer/RayTracerTests" Presentation="&amp;lt;RayTracerTests&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
