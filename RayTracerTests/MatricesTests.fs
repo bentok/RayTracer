@@ -119,7 +119,7 @@ let ``Multiplying two matrices`` () =
            [| 16.0; 26.0; 46.0; 42.0 |] |]
 
     (m1, m2) ||> multiplyM |> equals expected |> should equal true
-    
+
 [<Fact>]
 let ``A matrix multiplied by a tuple`` () =
     let m =
@@ -127,9 +127,25 @@ let ``A matrix multiplied by a tuple`` () =
            [| 2.0; 4.0; 4.0; 2.0 |]
            [| 8.0; 6.0; 4.0; 1.0 |]
            [| 0.0; 0.0; 0.0; 1.0 |] |]
-        
+
     let t = 1.0, 2.0, 3.0, 1.0
-    
+
     let expected = 18.0, 24.0, 33.0, 1.0
-    
+
     (m, t) ||> multiplyT |> should equal expected
+
+[<Fact>]
+let ``Multiplying a matrix by the identity matrix`` () =
+    let m =
+        [| [| 0.0; 1.0; 2.0; 4.0 |]
+           [| 1.0; 2.0; 4.0; 8.0 |]
+           [| 2.0; 4.0; 8.0; 16.0 |]
+           [| 4.0; 8.0; 16.0; 32.0 |] |]
+
+    (m, identityMatrix) ||> multiplyM |> equals m |> should equal true
+
+[<Fact>]
+let ``Multiplying the identity matrix by a tuple`` () =
+    let t = 1.0, 2.0, 3.0, 4.0
+
+    (identityMatrix, t) ||> multiplyT |> should equal t

@@ -9,6 +9,12 @@ let (|Matrix4x4|Matrix3x3|Matrix2x2|) (value: float[][]) =
 
 let matrix (value: float[][]) = fun x y -> value[x][y]
 
+let identityMatrix =
+    [| [| 1.0; 0.0; 0.0; 0.0 |]
+       [| 0.0; 1.0; 0.0; 0.0 |]
+       [| 0.0; 0.0; 1.0; 0.0 |]
+       [| 0.0; 0.0; 0.0; 1.0 |] |]
+
 let equals (matrix1: float[][]) (matrix2: float[][]) =
     let m1 = matrix1 |> Array.toList |> List.map Array.toList
     let m2 = matrix2 |> Array.toList |> List.map Array.toList
