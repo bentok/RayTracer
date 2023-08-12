@@ -72,7 +72,16 @@ let determinant (m: float[][]) =
         m[0][0] * m[1][1] - m[0][1] * m[1][0]
     | _ -> failwith "Only 2x2 matrices are supported"
 
-let submatrix row col (m: float[][]) =
+let submatrix (row: int) (col: int) (m: float[][]) =
     m
     |> Array.map (Array.removeAt col)
     |> Array.removeAt row
+
+let minor (row: int) (col: int) (m: float[][]) =
+    submatrix row col m
+    |> determinant
+
+let cofactor (row: int) (col: int) (m: float[][]) =
+    match minor row col m with
+    | x when (row + col) % 2 = 0 -> x
+    | x -> -x

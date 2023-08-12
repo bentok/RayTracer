@@ -196,3 +196,55 @@ let ``A submatrix of a 4x4 matrix is a 3x3 matrix`` () =
         [| [| -6.0; 1.0; 6.0 |]; [| -8.0; 8.0; 6.0 |]; [| -7.0; -1.0; 1.0 |] |]
 
     m |> submatrix 2 1 |> equals expected |> should equal true
+
+[<Fact>]
+let ``Calculating a minor of a 3x3 matrix`` () =
+    let m = [| [| 3.0; 5.0; 0.0 |]; [| 2.0; -1.0; -7.0 |]; [| 6.0; -1.0; 5.0 |] |]
+
+    let b = submatrix 1 0 m
+
+    b |> determinant |> should equal 25.0
+
+    m |> minor 1 0 |> should equal 25.0
+
+[<Fact>]
+let ``Calculating a cofactor of a 3x3 matrix`` () =
+    let m = [| [| 3.0; 5.0; 0.0 |]; [| 2.0; -1.0; -7.0 |]; [| 6.0; -1.0; 5.0 |] |]
+
+    m |> minor 0 0 |> should equal -12.0
+
+    m |> cofactor 0 0 |> should equal -12.0
+
+    m |> minor 1 0 |> should equal 25.0
+
+    m |> cofactor 1 0 |> should equal -25.0
+    
+[<Fact>]
+let ``Calculating the determinant of a 3x3 matrix`` () =
+    let m = [| [| 1.0; 2.0; 6.0 |]; [| -5.0; 8.0; -4.0 |]; [| 2.0; 6.0; 4.0 |] |]
+
+    m |> cofactor 0 0 |> should equal 56.0
+
+    m |> cofactor 0 1 |> should equal 12.0
+
+    m |> cofactor 0 2 |> should equal -46.0
+
+    m |> determinant |> should equal -196.0
+
+[<Fact>]
+let ``Calculating the determinant of a 4x4 matrix`` () =
+    let m =
+        [| [| -2.0; -8.0; 3.0; 5.0 |]
+           [| -3.0; 1.0; 7.0; 3.0 |]
+           [| 1.0; 2.0; -9.0; 6.0 |]
+           [| -6.0; 7.0; 7.0; -9.0 |] |]
+
+    m |> cofactor 0 0 |> should equal 690.0
+
+    m |> cofactor 0 1 |> should equal 447.0
+
+    m |> cofactor 0 2 |> should equal 210.0
+
+    m |> cofactor 0 3 |> should equal 51.0
+
+    m |> determinant |> should equal -4071.0
