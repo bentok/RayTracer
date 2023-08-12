@@ -9,12 +9,12 @@ let (|Matrix4x4|Matrix3x3|Matrix2x2|) (value: float[][]) =
 
 let matrix (value: float[][]) = fun x y -> value[x][y]
 
-let ``==`` (matrix1: float[][]) (matrix2: float[][]) =
+let equals (matrix1: float[][]) (matrix2: float[][]) =
     let m1 = matrix1 |> Array.toList |> List.map Array.toList
     let m2 = matrix2 |> Array.toList |> List.map Array.toList
     m1 = m2
 
-let ``*`` (m1: float[][]) (m2: float[][]) =
+let multiplyM (m1: float[][]) (m2: float[][]) =
     let dotProduct v1 v2 =
         Array.fold2 (fun acc x y -> acc + x * y) 0.0 v1 v2
 
@@ -27,3 +27,23 @@ let ``*`` (m1: float[][]) (m2: float[][]) =
     | Matrix3x3 _, Matrix3x3 _ -> multiply 3
     | Matrix2x2 _, Matrix2x2 _ -> multiply 2
     | _ -> failwith "Invalid matrix sizes"
+
+let multiplyT (m: float[][]) (t: float * float * float * float) =
+    let first, second, third, fourth = t
+    
+    match m with
+    | Matrix4x4 matrix ->
+        matrix
+        |> Array.map (fun row ->
+            row
+            |> Array.mapi (fun x y -> x, y)
+            |> Array.sumBy (fun (i, x) ->
+                x
+                * match i with
+                  | 0 -> first
+                  | 1 -> second
+                  | 2 -> third
+                  | 3 -> fourth
+                  | _ -> failwith "Invalid matrix size"))
+        |> fun x -> x[0], x[1], x[2], x[3]
+    | _ -> failwith "Invalid matrix size"

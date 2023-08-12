@@ -80,7 +80,7 @@ let ``Matrix equality with identical indices`` () =
            [| 9.0; 8.0; 7.0; 6.0 |]
            [| 5.0; 4.0; 3.0; 2.0 |] |]
 
-    m1 |> ``==`` m2 |> should equal true
+    m1 |> equals m2 |> should equal true
 
 [<Fact>]
 let ``Matrix equality with different matrices`` () =
@@ -96,7 +96,7 @@ let ``Matrix equality with different matrices`` () =
            [| 8.0; 7.0; 6.0; 5.0 |]
            [| 4.0; 3.0; 2.0; 1.0 |] |]
 
-    m1 |> ``==`` m2 |> should equal false
+    m1 |> equals m2 |> should equal false
 
 [<Fact>]
 let ``Multiplying two matrices`` () =
@@ -118,4 +118,18 @@ let ``Multiplying two matrices`` () =
            [| 40.0; 58.0; 110.0; 102.0 |]
            [| 16.0; 26.0; 46.0; 42.0 |] |]
 
-    (m1, m2) ||> ``*`` |> ``==`` expected |> should equal true
+    (m1, m2) ||> multiplyM |> equals expected |> should equal true
+    
+[<Fact>]
+let ``A matrix multiplied by a tuple`` () =
+    let m =
+        [| [| 1.0; 2.0; 3.0; 4.0 |]
+           [| 2.0; 4.0; 4.0; 2.0 |]
+           [| 8.0; 6.0; 4.0; 1.0 |]
+           [| 0.0; 0.0; 0.0; 1.0 |] |]
+        
+    let t = 1.0, 2.0, 3.0, 1.0
+    
+    let expected = 18.0, 24.0, 33.0, 1.0
+    
+    (m, t) ||> multiplyT |> should equal expected
