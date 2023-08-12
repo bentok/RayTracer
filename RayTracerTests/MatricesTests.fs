@@ -149,3 +149,50 @@ let ``Multiplying the identity matrix by a tuple`` () =
     let t = 1.0, 2.0, 3.0, 4.0
 
     (identityMatrix, t) ||> multiplyT |> should equal t
+
+[<Fact>]
+let ``Transposing a matrix`` () =
+    let m =
+        [| [| 0.0; 9.0; 3.0; 0.0 |]
+           [| 9.0; 8.0; 0.0; 8.0 |]
+           [| 1.0; 8.0; 5.0; 3.0 |]
+           [| 0.0; 0.0; 5.0; 8.0 |] |]
+
+    let expected =
+        [| [| 0.0; 9.0; 1.0; 0.0 |]
+           [| 9.0; 8.0; 8.0; 0.0 |]
+           [| 3.0; 0.0; 5.0; 5.0 |]
+           [| 0.0; 8.0; 3.0; 8.0 |] |]
+
+    m |> transpose |> equals expected |> should equal true
+
+[<Fact>]
+let ``Transposing the identity matrix`` () =
+    identityMatrix |> transpose |> equals identityMatrix |> should equal true
+
+[<Fact>]
+let ``Calculating the determinant of a 2x2 matrix`` () =
+    let m = [| [| 1.0; 5.0 |]; [| -3.0; 2.0 |] |]
+
+    m |> determinant |> should equal 17.0
+
+[<Fact>]
+let ``A submatrix of a 3x3 matrix is a 2x2 matrix`` () =
+    let m = [| [| 1.0; 5.0; 0.0 |]; [| -3.0; 2.0; 7.0 |]; [| 0.0; 6.0; -3.0 |] |]
+
+    let expected = [| [| -3.0; 2.0 |]; [| 0.0; 6.0 |] |]
+
+    m |> submatrix 0 2 |> equals expected |> should equal true
+
+[<Fact>]
+let ``A submatrix of a 4x4 matrix is a 3x3 matrix`` () =
+    let m =
+        [| [| -6.0; 1.0; 1.0; 6.0 |]
+           [| -8.0; 5.0; 8.0; 6.0 |]
+           [| -1.0; 0.0; 8.0; 2.0 |]
+           [| -7.0; 1.0; -1.0; 1.0 |] |]
+
+    let expected =
+        [| [| -6.0; 1.0; 6.0 |]; [| -8.0; 8.0; 6.0 |]; [| -7.0; -1.0; 1.0 |] |]
+
+    m |> submatrix 2 1 |> equals expected |> should equal true

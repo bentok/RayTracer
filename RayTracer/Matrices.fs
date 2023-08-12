@@ -52,4 +52,27 @@ let multiplyT (m: float[][]) (t: float * float * float * float) =
                   | 3 -> fourth
                   | _ -> failwith "Invalid matrix size"))
         |> fun x -> x[0], x[1], x[2], x[3]
-    | _ -> failwith "Invalid matrix size"
+    | _ -> failwith "Only 4x4 matrices are supported"
+
+let transpose (m: float[][]) =
+    match m with
+    | Matrix4x4 matrix ->
+        matrix
+        |> Array.mapi (fun i _ -> Array.init 4 (fun j -> m[j][i]))
+    | Matrix3x3 matrix ->
+        matrix
+        |> Array.mapi (fun i _ -> Array.init 3 (fun j -> m[j][i]))
+    | Matrix2x2 matrix ->
+        matrix
+        |> Array.mapi (fun i _ -> Array.init 2 (fun j -> m[j][i]))
+
+let determinant (m: float[][]) =
+    match m with
+    | Matrix2x2 m ->
+        m[0][0] * m[1][1] - m[0][1] * m[1][0]
+    | _ -> failwith "Only 2x2 matrices are supported"
+
+let submatrix row col (m: float[][]) =
+    m
+    |> Array.map (Array.removeAt col)
+    |> Array.removeAt row

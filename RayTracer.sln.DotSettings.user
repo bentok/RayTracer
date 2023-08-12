@@ -20,6 +20,11 @@
     &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.A matrix multiplied by a tuple&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Multiplying a matrix by the identity matrix&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Multiplying the identity matrix by a tuple&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Transposing a matrix&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Transposing the identity matrix&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.Calculating the determinant of a 2x2 matrix&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.A submatrix of a 3x3 matrix is a 2x2 matrix&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BA42F243-63B8-4997-99A8-FA0444E2C054::net7.0::MatricesTests.A submatrix of a 4x4 matrix is a 3x3 matrix&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ebc760d2_002Dbf54_002D4ac3_002D80bb_002D12bcdaa04656/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Multiplying two matrices #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
