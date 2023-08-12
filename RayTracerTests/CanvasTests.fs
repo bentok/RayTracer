@@ -9,10 +9,10 @@ let ``Creating a canvas`` () =
     let width, height, c = canvas 10 20
     width |> should equal 10
     height |> should equal 20
-    height |> should equal (List.length c)
+    height |> should equal (Array.length c)
 
     for row in c do
-        width |> should equal (List.length row)
+        width |> should equal (Array.length row)
 
         for pixel in row do
             pixel |> should equal (0.0, 0.0, 0.0)

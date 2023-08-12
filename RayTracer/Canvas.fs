@@ -4,26 +4,27 @@ open System
 open System.IO
 open Colors
 
-type Canvas = int * int * Color list list
+type Canvas = int * int * Color array array
 
 let canvas width height : Canvas =
-    let c = [ 1..height ] |> List.map (fun x -> [ for i in 1..width -> 0.0, 0.0, 0.0 ])
+    let c = [| for _ in 1..height -> [| for _ in 1..width -> 0.0, 0.0, 0.0 |] |]
 
     width, height, c
 
 let writePixel canvas x y color : Canvas =
     let _, _, colors = canvas
 
-    let indexed = colors |> List.map List.indexed |> List.indexed
+    let indexed =
+        colors |> Array.mapi (fun i row -> i, row |> Array.mapi (fun j col -> j, col))
 
-    colors[0].Length,
+    colors |> Array.head |> Array.length,
     colors.Length,
     indexed
-    |> List.map (fun (idx, row) ->
+    |> Array.map (fun (idx, row) ->
         if idx = y then
-            row |> List.map (fun (idx, column) -> if idx = x then color else column)
+            row |> Array.map (fun (idx, column) -> if idx = x then color else column)
         else
-            row |> List.map snd)
+            row |> Array.map snd)
 
 let pixelAt (c: Canvas) x y =
     let _, _, colors = c
@@ -48,30 +49,33 @@ let makePpmPixelData canvas =
     let concatenateColors colors =
         let rec splitOrConcat colors currentLine result =
             match colors with
-            | [] -> List.rev (currentLine :: result)
-            | h :: t ->
+            | [||] -> Array.rev (Array.append [| currentLine |] result)
+            | _ ->
+                let h = colors |> Array.head
+                let t = Array.sub colors 1 (colors.Length - 1)
+
                 let newLine =
                     match currentLine with
                     | "" -> h
                     | _ -> currentLine + " " + h
 
                 if newLine.Length > 70 then
-                    splitOrConcat t h (currentLine :: result)
+                    splitOrConcat t h (Array.append [| currentLine |] result)
                 else
                     splitOrConcat t newLine result
 
-        splitOrConcat colors "" [] |> String.concat "\n"
+        splitOrConcat colors "" [||] |> String.concat "\n"
 
-    let stringifyRow = List.map string >> concatenateColors
-    let tupleToList = fun (r, g, b) -> [ r; g; b ]
+
+    let stringifyRow = Array.map string >> concatenateColors
+    let tupleToArray = fun (r, g, b) -> [| r; g; b |]
 
     colors
-    |> List.map (List.map toColorComponent)
-    |> List.map (List.map tupleToList)
-    |> List.map (List.fold (fun acc x -> acc @ x) [])
-    |> List.map stringifyRow
+    |> Array.map (Array.map toColorComponent)
+    |> Array.map (Array.map tupleToArray)
+    |> Array.map (Array.fold Array.append [||])
+    |> Array.map stringifyRow
     |> String.concat "\n"
-
 
 let canvasToPpm canvas =
     $"""{makePpmHeader canvas}
